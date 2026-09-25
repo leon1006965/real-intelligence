@@ -100,7 +100,7 @@ if __name__ == "__main__":
     parser.add_argument("--chat", help="Chat with saved model")
     parser.add_argument("--test", help="Test saved model")
     parser.add_argument("--epochs", type=int, default=3, help="Training epochs")
-    parser.add_argument("--output", default="ri_model.npz", help="Model output file")
+    parser.add_argument("--output", default="ri_model.json", help="Model output file")
     
     args = parser.parse_args()
     

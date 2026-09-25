@@ -207,16 +207,22 @@ class RealIntelligence:
     
     def save(self, filepath):
         """Save brain to file"""
+        import json
         data = {
             'word2idx': self.word2idx,
             'memory': [(p.tolist(), r) for p, r in self.memory],
             'input_size': self.input_size,
             'hidden_size': self.hidden_size,
         }
-        np.savez(filepath, **{k: v for k, v in data.items()})
+        with open(filepath, 'w') as f:
+            json.dump(data, f)
     
     def load(self, filepath):
         """Load brain from file"""
-        data = np.load(filepath, allow_pickle=True)
-        self.word2idx = data['word2idx'].item()
+        import json
+        with open(filepath, 'r') as f:
+            data = json.load(f)
+        self.word2idx = data['word2idx']
         self.memory = [(np.array(p), r) for p, r in data['memory']]
+        self.input_size = data['input_size']
+        self.hidden_size = data['hidden_size']
