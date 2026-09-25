@@ -1,0 +1,5 @@
+hello -> Hi there!
+what is 2 + 2 -> 4
+thanks -> You're welcome!
+bye -> Goodbye!
+make a website -> I can help with that! What topic?
